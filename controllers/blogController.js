@@ -34,6 +34,7 @@ exports.getBlog = async (req, res) => {
     const blog = await Blog.find().sort({ createdAt: -1 });
     res.json(blog);
   } catch (err) {
+    console.error("❌ Error in /api/blog:", err.message);
     res.status(500).json({ msg: "Server error" });
   }
 };

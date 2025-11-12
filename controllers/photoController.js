@@ -33,6 +33,7 @@ exports.getPhoto = async (req, res) => {
     const photo = await Photo.find().sort({ createdAt: -1 });
     res.json(photo);
   } catch (err) {
+    console.error("❌ Error in /api/phopt:", err.message);
     res.status(500).json({ msg: "Server error" });
   }
 };

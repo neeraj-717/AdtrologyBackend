@@ -40,6 +40,7 @@ exports.getProducts = async (req, res) => {
     const products = await Product.find().sort({ createdAt: -1 });
     res.json(products);
   } catch (err) {
+    console.error("❌ Error in /api/products:", err.message);
     res.status(500).json({ msg: "Server error" });
   }
 };
