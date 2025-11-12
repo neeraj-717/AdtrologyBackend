@@ -2,6 +2,10 @@ require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+
+// Clear mongoose model cache to fix namespace issues
+mongoose.models = {};
+mongoose.modelSchemas = {};
 const PORT = process.env.PORT || 5000;
 
 const app = express();
